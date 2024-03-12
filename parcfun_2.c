@@ -6,11 +6,12 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:21:56 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/08 17:32:38 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:20:24 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
+#include <stdio.h>
 
 static char	**handle_of_malloc(char **tab)
 {
@@ -27,24 +28,18 @@ static char	*hook(char *s1, int *id)
 	char	*word;
 	size_t	len_word;
 	int		i;
-
+	int op = 0;
 	len_word = 0;
+	i = 0;
+
 	while (ft_vtk(s1[*id]))
 		(*id)++;
 	i = *id;
-	while (s1[i] && !ft_vtk(s1[*id]))
-	{
-		len_word++;
-		i++;
-	}
+	hudler_o(s1, i, &op, &len_word);
 	word = malloc(sizeof(char) * (len_word + 1));
 	if (!word)
 		return (NULL);
-	i = 0;
-	while (s1[*id] && !ft_vtk(s1[*id]))
-		word[i++] = s1[(*id)++];
-	word[i] = '\0';
-	return (word);
+	return (hudler_t(s1,word,id));
 }
 char	**ft_spliter(char *s)
 {

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/08 20:50:33 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:28:57 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int ft_vtk(char c)
 {
 	if (c == '|' || c == '>'
-		|| c == '<' 
+		|| c == '<'
 		|| c == '\t')
 		return (1);
 	return (0);
@@ -83,28 +83,29 @@ int	number_of_word(char *str)
 	int op = 0;
 	while (str[i])
 	{
-		if (ft_vtk(str[i]) || str[i] == '\"')
-		{
 
-			if (op == 0  && str[i] == '\"')
-			{
-				i++;
-				while(str[i] && op == 0)
-				{
-					if (str[i] == '\"')
-						op = 1;
-					i++;
-				}
-				puts("OK");
-			}
-			else
-				i++;
-		}
+		if(ft_vtk(str[i]))
+			i++;
 		else
 		{
 			wc++;
 			while (!ft_vtk(str[i]) && str[i])
+			{
+				if(str[i] == '\"' || str[i] == '\'')
+				{
+					if (!op)
+					{
+						if (str[i] == '\"' )
+							op	= ft_parq(str, &i,'q');
+						else if( str[i] == '\'')
+							op = ft_parq(str, &i,'s');
+					}
+					if (!op)
+						exit(1);
+					op = 0;
+				}
 				i++;
+			}
 		}
 	}
 	return (wc);

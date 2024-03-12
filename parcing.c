@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/08 20:39:47 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:51:29 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ t_node	*parcing(char *str)
 	// while (i < len)
 	// 	printf(">> %d \t",arr[i++]);
 	// i = 0;
-	// char **strs = ft_spliter(str);
-	// while (strs[i])
-	// 	printf("%s\n",strs[i++]);
-	printf("%d", number_of_word(str));
+	char **strs = ft_spliter(str);
+	while (strs[i])
+		printf("%s\n",strs[i++]);
 	return (NULL);
 }
