@@ -6,27 +6,27 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:06:43 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/13 01:42:10 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:28:02 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
+#include <stdio.h>
 
-
-void hudler_o(char *s1,int i,int *op,size_t *len_word)
+void	hudler_o(char *s1, int i, int *op, size_t *len_word)
 {
 	while (s1[i])
 	{
-		if(s1[i] == '\"' || s1[i] == '\'')
+		if (s1[i] == '\"' || s1[i] == '\'')
 		{
 			if (!(*op))
 			{
 				if (s1[i] == '\"' )
-					*op	= ft_parq(s1, &i,'q');
-				else if( s1[i] == '\'')
-					*op = ft_parq(s1, &i,'s');
+					*op = ft_parq(s1, &i, 'q');
+				else if (s1[i] == '\'')
+					*op = ft_parq(s1, &i, 's');
 			}
-			if (!(*op % 2))
+			if (!(*op))
 			{
 				printf("syntax error");
 				exit(1);
@@ -40,16 +40,18 @@ void hudler_o(char *s1,int i,int *op,size_t *len_word)
 			i++;
 		}
 		else
-			return;
+			return ;
 	}
 }
 
-void  hun_par(char *s1,int *id, int *i ,char *word)
+void	hun_par(char *s1, int *id, int *i, char *word)
 {
-	int op = 0;
+	int	op;
+
+	op = 0;
 	if (s1[*id] == '\"' )
 	{
-		while(s1[*id] && op == 0)
+		while (s1[*id] && op == 0)
 		{
 			word[(*i)++] = s1[(*id)++];
 			if (s1[*id] == '\"')
@@ -58,7 +60,7 @@ void  hun_par(char *s1,int *id, int *i ,char *word)
 	}
 	else if (s1[*id] == '\'' )
 	{
-		while(s1[*id] && op == 0)
+		while (s1[*id] && op == 0)
 		{
 			word[(*i)++] = s1[(*id)++];
 			if (s1[*id] == '\'')
@@ -66,25 +68,26 @@ void  hun_par(char *s1,int *id, int *i ,char *word)
 		}
 	}
 }
-char  *hudler_t(char *s1,char *word, int *id)
+
+char	*hudler_t(char *s1, char *word, int *id)
 {
-	int i;
-	int op;
+	int	i;
+	int	op;
 
 	i = 0;
 	op = 0;
 	while (s1[*id] && (!ft_vtk(s1[*id])))
 	{
-		if(s1[*id] == '\'' || s1[*id] == '\"')
+		if (s1[*id] == '\'' || s1[*id] == '\"')
 		{
 			if (!op)
 			{
-				hun_par(s1,id,&i,word);
+				hun_par(s1, id, &i, word);
 				op = 0;
 			}
 		}
 		word[i++] = s1[(*id)++];
 	}
 	word[i] = '\0';
-	return(word);
+	return (word);
 }

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:21:56 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/12 15:20:24 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:55:30 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@ static char	**handle_of_malloc(char **tab)
 	free(tab);
 	return (NULL);
 }
+
 static char	*hook(char *s1, int *id)
 {
-	char	*word;
 	size_t	len_word;
+	char	*word;
 	int		i;
-	int op = 0;
+	int		op;
+
+	op = 0;
 	len_word = 0;
 	i = 0;
-
 	while (ft_vtk(s1[*id]))
 		(*id)++;
 	i = *id;
@@ -39,8 +41,9 @@ static char	*hook(char *s1, int *id)
 	word = malloc(sizeof(char) * (len_word + 1));
 	if (!word)
 		return (NULL);
-	return (hudler_t(s1,word,id));
+	return (hudler_t(s1, word, id));
 }
+
 char	**ft_spliter(char *s)
 {
 	char	**arr;

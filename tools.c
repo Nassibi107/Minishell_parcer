@@ -6,13 +6,13 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 19:17:36 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/11 15:38:56 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:33:08 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
 
-static void case_1(char c ,int *i ,int *len)
+static void	case_1(char c, int *i, int *len)
 {
 	if (c == '<')
 	{
@@ -22,7 +22,8 @@ static void case_1(char c ,int *i ,int *len)
 	else
 		*len += 1;
 }
-static void case_2(char c,int *i ,int *len)
+
+static void	case_2(char c, int *i, int *len)
 {
 	if (c == '>')
 	{
@@ -33,14 +34,14 @@ static void case_2(char c,int *i ,int *len)
 		*len += 1;
 }
 
-int ft_set_tk(char *str)
+int	ft_set_tk(char *str)
 {
 	int	len;
 	int	i;
 
 	len = 0;
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] == '|')
 			len += 1;
@@ -53,28 +54,29 @@ int ft_set_tk(char *str)
 	return (len);
 }
 
-int ft_parq(char *str, int *i,char f)
+int	ft_parq(char *str, int *i, char f)
 {
 	int	op;
 
 	op = 0;
 	*i += 1;
- 	if (f == 'q')
+	if (f == 'q')
 	{
-		while((str[*i]) && op == 0)
-			{
-				if (str[*i] == '\"')
-					op = 1;
-				*i += 1;
-			}
-	}else if (f == 's')
+		while ((str[*i]) && op == 0)
+		{
+			if (str[*i] == '\"')
+				op = 1;
+			*i += 1;
+		}
+	}
+	else if (f == 's')
 	{
-		while((str[*i]) && op == 0)
-			{
-				if (str[*i] == '\'')
-					op = 1;
-				*i += 1;
-			}
+		while ((str[*i]) && op == 0)
+		{
+			if (str[*i] == '\'')
+				op = 1;
+			*i += 1;
+		}
 	}
 	return (op);
 }
