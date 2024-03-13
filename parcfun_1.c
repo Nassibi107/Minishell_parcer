@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/11 14:28:57 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/13 01:32:09 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,6 @@ int	number_of_word(char *str)
 						else if( str[i] == '\'')
 							op = ft_parq(str, &i,'s');
 					}
-					if (!op)
-						exit(1);
 					op = 0;
 				}
 				i++;

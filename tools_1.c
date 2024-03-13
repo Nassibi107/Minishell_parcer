@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:06:43 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/12 15:24:29 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/13 01:42:10 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ void hudler_o(char *s1,int i,int *op,size_t *len_word)
 				else if( s1[i] == '\'')
 					*op = ft_parq(s1, &i,'s');
 			}
-			if (!(*op))
+			if (!(*op % 2))
+			{
+				printf("syntax error");
 				exit(1);
+			}
 			*op = 0;
 			*len_word += i;
 		}
