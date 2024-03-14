@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/12 15:16:48 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:44:03 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ char	**ft_spliter(char *s);
 int   ft_parq(char *str, int *i,char f);
 void hudler_o(char *s1,int i,int *op,size_t *len_word);
 char  *hudler_t(char *s1,char *word, int *id);
+void	ft_skep (char *str, int *i);

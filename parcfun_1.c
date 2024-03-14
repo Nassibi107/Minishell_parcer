@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:52:26 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:45:10 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_vtk(char c)
 		return (1);
 	return (0);
 }
+
 
 static void	case_one(int *arr, char c, int *i, int *j)
 {
@@ -57,12 +58,14 @@ int	*ft_arr_tk(char *str, int len)
 	int	*arr;
 	int	i;
 	int	j;
+	int	op;
 
 	arr = malloc(len * sizeof(int));
 	i = 0;
 	j = 0;
 	while (str[i] && j < len)
 	{
+		ft_skep (str, &i);
 		if (str[i] == '|')
 			arr[j++] = 0;
 		else if (str[i] == '<')
@@ -72,6 +75,28 @@ int	*ft_arr_tk(char *str, int len)
 		i++;
 	}
 	return (arr);
+}
+
+void fun (char *str,int *i)
+{
+	int	op;
+
+	op = 0;
+	while (!ft_vtk(str[*i]) && str[*i])
+	{
+		if (str[*i] == '\"' || str[*i] == '\'')
+		{
+			if (!op)
+			{
+				if (str[*i] == '\"' )
+					op = ft_parq(str, i, 'q');
+				else if (str[*i] == '\'')
+					op = ft_parq(str, i, 's');
+			}
+			op = 0;
+		}
+		(*i)++;
+	}
 }
 
 int	number_of_word(char *str)
@@ -91,22 +116,9 @@ int	number_of_word(char *str)
 		else
 		{
 			wc++;
-			while (!ft_vtk(str[i]) && str[i])
-			{
-				if (str[i] == '\"' || str[i] == '\'')
-				{
-					if (!op)
-					{
-						if (str[i] == '\"' )
-							op = ft_parq(str, &i, 'q');
-						else if (str[i] == '\'')
-							op = ft_parq(str, &i, 's');
-					}
-					op = 0;
-				}
-				i++;
-			}
+			fun(str,&i);
 		}
+		op = 0;
 	}
 	return (wc);
 }

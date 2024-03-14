@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:06:43 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:28:02 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:33:05 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,18 @@ char	*hudler_t(char *s1, char *word, int *id)
 	}
 	word[i] = '\0';
 	return (word);
+}
+void	ft_skep (char *str, int *i)
+{
+	int	op;
+
+	op = 0;
+	if (str[*i] == '\'' || str[*i] == '\"')
+	{
+			if (str[*i] == '\'')
+				op = ft_parq(str, i, 's');
+			else if  (str[*i] == '\"')
+				op = ft_parq(str, i, 'q');
+			op =  0;
+	}
 }
