@@ -6,13 +6,14 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/14 11:44:03 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:11:53 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 #include "libft/libft.h"
+
 
 t_node	*parcing(char *str);
 char	**ft_splitt(char *str);

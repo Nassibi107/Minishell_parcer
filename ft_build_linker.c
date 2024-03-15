@@ -6,17 +6,31 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:20:52 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:47:44 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "minishell.h"
 #include "parcer.h"
 
 
-static void	ft_lstadd_back_sa(t_node **sa, t_node *nsa)
+static t_minishell	*lststack(t_minishell *lst)
 {
-	t_node	*temp;
+	t_minishell	*temp;
+
+	if (!lst)
+		return (0x0);
+	temp = lst;
+	if (!temp)
+		return (0);
+	while (temp->next)
+		temp = temp->next;
+	return (temp);
+}
+static void	ft_lstadd_back_sa(t_minishell **sa, t_minishell *nsa)
+{
+	t_minishell	*temp;
 
 	if (!*sa)
 	{
@@ -29,20 +43,21 @@ static void	ft_lstadd_back_sa(t_node **sa, t_node *nsa)
 	temp->next = nsa;
 }
 
-static t_node	*ft_lstnew_sa(int content)
+static t_minishell	*ft_lstnew_sa(char *str, int *sub_arr, int len , char **afc)
 {
-	t_node	*new;
+	t_minishell	*new;
 
-	new = malloc(sizeof(t_node));
+	new = malloc(sizeof(t_minishell));
 	if (!new)
 		return (NULL);
-	new->cmd = NULL;
-   new->tk = -1;
-	new->next = NULL;
+	new->cmd = ft_split(str, ' ');
+	new->flag_input_output = ft_sub_ara(sub_arr);
+	new->len_tab_flaged = len;
+	new->after_out_or_input = ;
 	return (new);
 }
 
-void	ft_build_sa(char **str, t_node **sa)
+void	ft_build_sa(char **str, t_minishell *cmp)
 {
 	int	i;
 	int	val;
@@ -50,6 +65,14 @@ void	ft_build_sa(char **str, t_node **sa)
 	i = 0;
 	while (str[i])
 	{
+		if (!cmp)
+		{
+			ft_lstnew_sa(ft_split(str[i], ' '), 0,
+			)
+		}
+		else {
+
+		}
 
 	}
 }

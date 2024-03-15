@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:10:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/03/07 16:36:49 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:19:21 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,18 @@ typedef	struct	s_bagages
 
 typedef struct s_minishell
 {
-	char				**cmd;
-	char				*after_cmd;
-	int					*flag_input_output;
-	char				**after_out_or_input;
-	t_bagages			*bagage;
-	char				**envir;
-	struct s_minishell	*next;
+    char                **cmd;
+    int                    *flag_input_output;
+    int                    len_tab_flaged;
+    char                **after_out_or_input;
+    struct s_minishell	*next;
 }	t_minishell;
 
 typedef struct node
 {
 	char	**cmd;
 	int	tk;
-	struct node* next;
+	struct	node* next;
 } t_node;
 //yassine
 // int		ft_strlen(char *s);
