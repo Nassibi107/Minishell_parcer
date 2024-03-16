@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:39:04 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/15 16:54:41 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:48:39 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,45 +75,48 @@ char	*epur_str(char *str)
 	int i = 0;
 	int op = 0;
 	len = ft_strlen_epur(str);
-	new = malloc((len + 1));
+	new = malloc(sizeof(char) * (len + 1));
+	printf("%d",len);
 	if (!new)
 		return (0x0);
-	while(str[i])
+	while(i < len)
 	{
-		if (str[i]== '\'' || str[i] == '\"')
-		{
-			if (str[i] == '\'')
-			{
-				while ((str[i]) && op == 0)
-				{
-					new[i]= str[i];
-					if (str[i] == '\'')
-						op = 1;
-					i++;
-				}
-			}
-			else if (str[i] == '\"')
-			{
-				while ((str[i]) && op == 0)
-				{
-					new[i] = str[i];
-					if (str[i] == '\"')
-						op = 1;
-					i++;
-				}
-			}
-		}
+		// if (str[i] == '\'' || str[i] == '\"')
+		// {
+		// 	if (!op)
+		// 	{
+		// 		if (str[i] == '\"' )
+		// 		{
+		// 			while (str[i] && op == 0)
+		// 			{
+		// 				new[i] = str[i];
+		// 				if (str[i++] == '\"')
+		// 					op = 1;
+		// 			}
+		// 		}
+		// 		else if (str[i] == '\'' )
+		// 		{
+		// 			while (str[i] && op == 0)
+		// 			{
+		// 				new[i] = str[i];
+		// 				if (str[i++] == '\'')
+		// 					op = 1;
+		// 			}
+		// 		}
+		// 		 op = 0;
+		// 	}
+		// }
 		while (str[i] == ' ' && str[i + 1] == ' ')
 			i++;
-		if (str[i] == ' ' && !str[i + 1])
-			break;
 		new[i] = str[i];
 		i++;
 	}
 	new[i] = 0;
+	printf("%s",new);
 	return (new);
 }
 int main (int ac, char **av)
 {
-	printf("%s\n",epur_str(av[1]));
+
+	epur_str("yassine |ls |    ls");
 }
