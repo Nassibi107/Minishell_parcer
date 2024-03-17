@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/14 15:11:53 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:36:08 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 t_node	*parcing(char *str);
 char	**ft_splitt(char *str);
+void	hun_par(char *s1, int *id, int *i, char *word);
 int	number_of_word(char *str);
 int	ft_vtk(char c);
 int  *ft_arr_tk(char *str, int len);

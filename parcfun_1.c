@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/14 11:45:10 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:25:42 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,10 @@ int	number_of_word(char *str)
 	int	i;
 	int	wc;
 	int	*arr;
-	int	op;
 
 	i = 0;
 	wc = 0;
-	op = 0;
+
 	while (str[i])
 	{
 		if (ft_vtk(str[i]))
@@ -118,7 +117,6 @@ int	number_of_word(char *str)
 			wc++;
 			fun(str,&i);
 		}
-		op = 0;
 	}
 	return (wc);
 }

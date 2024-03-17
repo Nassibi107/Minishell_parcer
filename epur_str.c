@@ -6,117 +6,187 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:39:04 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/16 13:48:39 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:46:30 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft/libft.h"
+
+
 #include "parcer.h"
+#include <stdio.h>
 
-
-void	ft_parq_epur(char *str, int *i,int *len, char f)
+static int	get_des(char c)
+{
+	if ( c == '\t' || c == ' ')
+		return (1);
+	return (0);
+}
+void	hun_pars(char *s1, int *id, int *i, char *word)
 {
 	int	op;
 
 	op = 0;
-	*i += 1;
-	*len += 1;
-	if (f == 'q')
+	if (s1[*id] == '\"' )
 	{
-		while ((str[*i]) && op == 0)
+		while (s1[*id] && op == 0)
 		{
-			if (str[*i] == '\"')
+			word[(*i)++] = s1[(*id)++];
+			if (s1[*id] == '\"')
 				op = 1;
-			*i += 1;
-			*len +=1;
 		}
 	}
-	else if (f == 's')
+	else if (s1[*id] == '\'' )
 	{
-		while ((str[*i]) && op == 0)
+		while (s1[*id] && op == 0)
 		{
-			if (str[*i] == '\'')
+			word[(*i)++] = s1[(*id)++];
+			if (s1[*id] == '\'')
 				op = 1;
-			*i += 1;
-			*len +=1;
 		}
 	}
 }
-int ft_strlen_epur(char *str)
+static char	**handle_of_malloc(char **tab)
 {
-	int len = 0;
-	int i = 0;
-	while (str[i] == ' ')
-		i++;
+	unsigned int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
+}
+
+static int	number_of_words(char *str, char c)
+{
+	int	i;
+	int	wc;
+
+	i = 0;
+	wc = 0;
 	while (str[i])
 	{
-		if (str[i]== '\'' || str[i] == '\"')
+		if (str[i] == c)
+			i++;
+		else
 		{
-			if (str[i] == '\'')
-			ft_parq_epur(str, &i, &len ,'s');
-			else
-			ft_parq_epur(str, &i, &len ,'q');
+			wc++;
+			if (str[i] == '\'' || str[i] == '\"')
+			{
+				if(str[i] == '\'')
+				{
+					i++;
+					while(str[i] != '\'')
+						i++;
+				}
+				else if(str[i] == '\"')
+				{
+					i++;
+					while(str[i] != '\"')
+						i++;
+				}
+			}
+			while (str[i] != c && str[i])
+				i++;
 		}
-		while (str[i] == ' ' && str[i + 1] == ' ')
-			i++;
-		if (str[i] == ' ' && !str[i + 1])
-			break;
-		len++;
-		i++;
 	}
-	return (len);
+	return (wc);
 }
-char	*epur_str(char *str)
+//yassine@nassibi@1337
+char	*hudler_t(char *s1, char *word, int *id)
 {
-	int	len;
-	char	*new;
-	int i = 0;
-	int op = 0;
-	len = ft_strlen_epur(str);
-	new = malloc(sizeof(char) * (len + 1));
-	printf("%d",len);
-	if (!new)
-		return (0x0);
-	while(i < len)
-	{
-		// if (str[i] == '\'' || str[i] == '\"')
-		// {
-		// 	if (!op)
-		// 	{
-		// 		if (str[i] == '\"' )
-		// 		{
-		// 			while (str[i] && op == 0)
-		// 			{
-		// 				new[i] = str[i];
-		// 				if (str[i++] == '\"')
-		// 					op = 1;
-		// 			}
-		// 		}
-		// 		else if (str[i] == '\'' )
-		// 		{
-		// 			while (str[i] && op == 0)
-		// 			{
-		// 				new[i] = str[i];
-		// 				if (str[i++] == '\'')
-		// 					op = 1;
-		// 			}
-		// 		}
-		// 		 op = 0;
-		// 	}
-		// }
-		while (str[i] == ' ' && str[i + 1] == ' ')
-			i++;
-		new[i] = str[i];
-		i++;
-	}
-	new[i] = 0;
-	printf("%s",new);
-	return (new);
-}
-int main (int ac, char **av)
-{
+	int	i;
+	int	op;
 
-	epur_str("yassine |ls |    ls");
+	i = 0;
+	op = 0;
+	while (s1[*id] && (!get_des(s1[*id])))
+	{
+		if (s1[*id] == '\'' || s1[*id] == '\"')
+		{
+			if (!op)
+			{
+				hun_pars(s1, id, &i, word);
+				op = 0;
+			}
+		}
+		word[i++] = s1[(*id)++];
+	}
+	word[i] = '\0';
+	return (word);
+}
+static char	*hooks(char *s1, int *id, char c)
+{
+	char	*word;
+	size_t	len_word;
+	int		i;
+
+	len_word = 0;
+	while (s1[*id] == c)
+		(*id)++;
+	i = *id;
+	while (s1[i])
+	{
+		if (s1[i] == '\'' || s1[i] == '\"')
+		{
+			if (s1[i] == '\"' )
+				 ft_parq(s1, &i, 'q');
+			else if (s1[i] == '\'')
+					ft_parq(s1, &i, 's');
+			len_word += i;
+		}
+		else if(s1[i] != c)
+		{
+			i++;
+			len_word++;
+		}
+		else
+			break;
+	}
+	printf("» %ld\n",len_word);
+	word = malloc(sizeof(char) * (len_word + 1));
+	if (!word)
+		return (NULL);
+
+	return (hudler_t(s1, word, id));
+}
+
+char	**ft_splits(char *s, char c)
+{
+	char	**arr;
+	int		id;
+	int		wc;
+	int		i;
+
+	id = 0;
+	i = 0;
+	if (!s)
+		return (NULL);
+	wc = number_of_words(s, c);
+	arr = malloc(sizeof(char *) * (wc + 1));
+	if (!arr)
+		return (NULL);
+	while (i < wc)
+	{
+		arr[i] = hooks(s, &id, c);
+		if (!arr[i])
+			return (handle_of_malloc(arr));
+		i++;
+	}
+	arr[i] = 0;
+	return(arr);
+}
+
+
+int main (int ac ,char **av)
+{
+	int i;
+
+	i = 0;
+
+	char **strs = ft_splits("echo \"yassine 13\"     \'ls\'"       , ' ');
+	while (strs[i])
+	{
+		printf("%s\n",strs[i]);
+		i++;
+	}
 }
