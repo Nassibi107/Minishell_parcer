@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/18 17:25:40 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:52:10 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ char  *hudler_t(char *s1,char *word, int *id);
 void	ft_skep (char *str, int *i);
 char	**handle_of_malloc(char **tab);
 int	get_des(char c);
-t_docker	*get_link_cmd(char **str,int *b_arr);
+t_docker	*get_link_cmd(char **str,int *b_arr,int len);
 char	**ft_splits(char *s);

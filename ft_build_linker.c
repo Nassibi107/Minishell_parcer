@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/18 17:35:03 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:51:47 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	add_back_executor(t_docker **head, t_docker *node)
     node->next = NULL;
 }
 
-t_docker	*get_link_cmd(char **str,int *b_arr)
+t_docker	*get_link_cmd(char **str,int *b_arr,int len)
 {
 	int	i;
 	t_docker	*head;

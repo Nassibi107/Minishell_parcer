@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/18 17:28:33 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:51:55 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_docker	*parcing(char *str)
 	arr = ft_arr_tk(str, len);
 	i = 0;
 	char **strs = ft_spliter(str);
-	cmp = get_link_cmd(strs,arr);
+	cmp = get_link_cmd(strs,arr,len);
 	while (cmp)
 	{
 		i = 0;
