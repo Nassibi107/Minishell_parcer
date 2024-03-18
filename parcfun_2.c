@@ -6,14 +6,14 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:21:56 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/16 15:05:21 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/17 15:31:10 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
 #include <stdio.h>
 
-static char	**handle_of_malloc(char **tab)
+char	**handle_of_malloc(char **tab)
 {
 	unsigned int	i;
 

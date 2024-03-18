@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:10:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/03/14 15:19:21 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:24:38 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,19 @@ typedef struct s_minishell
     char                **cmd;
     int                    *flag_input_output;
     int                    len_tab_flaged;
-    char                **after_out_or_input;
+    // char                 **after_out_or_input;
+    int tk ;
     struct s_minishell	*next;
 }	t_minishell;
 
 typedef struct node
 {
-	char	**cmd;
-	int	tk;
-	struct	node* next;
-} t_node;
+    char    **cmd;
+    int tk;
+    struct  node    *next;
+} t_docker;
+
+
 //yassine
 // int		ft_strlen(char *s);
 // void	ft_putstr_fd(char *s, int fd, int flag_newline);

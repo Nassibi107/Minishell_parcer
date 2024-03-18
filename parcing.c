@@ -6,30 +6,40 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/14 14:37:02 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:28:33 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "minishell.h"
 #include "parcer.h"
 #include <stdio.h>
 
-t_node	*parcing(char *str)
+t_docker	*parcing(char *str)
 {
 	int i = 0;
 	int	*arr ;
 	int	len;
-
+	t_docker *cmp;
 	len = ft_set_tk(str);
 	arr = ft_arr_tk(str, len);
-	printf("» %d",len);
-	while (i < len)
-		printf("\n [ %d] \t",arr[i++]);
 	i = 0;
-	printf("\n");
 	char **strs = ft_spliter(str);
-	while (strs[i])
-		printf("%s\n",strs[i++]);
+	cmp = get_link_cmd(strs,arr);
+	while (cmp)
+	{
+		i = 0;
+		printf("--------------------\n");
+		while(cmp->cmd[i])
+		{
+			printf("cmd[%i]:%s\n",i,cmp->cmd[i]);
 
+			i++;
+		}
+		printf("\n");
+		printf("token: %i\n",cmp->tk);
+		printf("--------------------\n");
+		cmp =  cmp->next;
+	}
 	return (NULL);
 }
