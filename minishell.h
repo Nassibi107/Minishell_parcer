@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:10:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/03/18 17:24:38 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:41:40 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,19 @@ typedef	struct	s_bagages
 
 typedef struct s_minishell
 {
-    char                **cmd;
+    char                *cmd;
     int                    *flag_input_output;
     int                    len_tab_flaged;
-    // char                 **after_out_or_input;
-    int tk ;
+    char                 **after_out_or_input;
     struct s_minishell	*next;
 }	t_minishell;
 
 typedef struct node
 {
-    char    **cmd;
-    int tk;
+    char    *cmd;
+    char    **cmds;
+    int     *tk;
+    char    **files;
     struct  node    *next;
 } t_docker;
 

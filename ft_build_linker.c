@@ -6,44 +6,30 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/18 17:51:47 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:52:44 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "minishell.h"
 #include "parcer.h"
+#include <stdio.h>
 
-t_docker	*lst_cmd(char *cmd,int i)
+t_docker	*lst_cmd(char *cmd,char *file,int *i)
 {
 	t_docker	*lst;
 
 	lst = malloc(sizeof(t_docker));
 	if (!lst)
 		return (NULL);
-	lst->cmd = ft_splits(cmd);
-	if (i >= 0)
-		lst->tk = i;
-	else
-		lst->tk = -1;
+	lst->cmd = ft_splits(cmd,1)[0];
+	lst->cmds = ft_splits(lst->cmd,0);
+	lst->tk = NULL;
+	lst->files = ft_splits(file,1)[0];
 	lst->next = 0x0;
 	return (lst);
 }
 
-int    lst_size_executor(t_docker **head)
-{
-    int        i;
-    t_docker    *tmp;
-
-    i = 0;
-    tmp = *head;
-    while (tmp)
-    {
-        i++;
-        tmp = tmp->next;
-    }
-    return (i);
-}
 
 t_docker	*last_cmd(t_docker *lst)
 {
@@ -84,9 +70,9 @@ t_docker	*get_link_cmd(char **str,int *b_arr,int len)
 	while(str[i])
 	{
 		if (i < len)
-			cmd = lst_cmd(str[i],b_arr[i]);
+			cmd = lst_cmd(str[i],str[i],NULL);
 		else
-			cmd = lst_cmd(str[i],-1);
+			cmd = lst_cmd(str[i],str[i],NULL);
 		add_back_executor(&head , cmd);
 		i++;
 	}

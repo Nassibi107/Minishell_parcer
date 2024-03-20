@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/18 17:52:10 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:37:38 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 
 t_docker	*parcing(char *str);
-void	ft_get_len(char *s1,int i, size_t *len_word);
+
+void	ft_get_len(char *s1,int i, size_t *len_word,int fg);
 char	**ft_splitt(char *str);
 void	hun_par(char *s1, int *id, int *i, char *word);
 int	number_of_word(char *str);
@@ -31,6 +32,11 @@ void hudler_o(char *s1,int i,int *op,size_t *len_word);
 char  *hudler_t(char *s1,char *word, int *id);
 void	ft_skep (char *str, int *i);
 char	**handle_of_malloc(char **tab);
-int	get_des(char c);
+int	get_des(char c,int fg);
 t_docker	*get_link_cmd(char **str,int *b_arr,int len);
-char	**ft_splits(char *s);
+void	shell_at_back(t_minishell **head, t_minishell *node);
+void	shell_at_font(t_minishell **head, t_minishell *node);
+t_minishell	*last_shell(t_minishell *lst);
+t_minishell	*new_shell(char **cmd,char **atcmd ,int *arr,int len );
+t_minishell	*get_data(t_docker *cmp,int *arr,int len);
+char	**ft_splits(char *s,char fg);

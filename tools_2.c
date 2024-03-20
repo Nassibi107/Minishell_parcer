@@ -6,13 +6,13 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:55:01 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/17 15:55:21 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:37:16 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.c"
 
-void	ft_get_len(char *s1,int i, size_t *len_word)
+void	ft_get_len(char *s1,int i, size_t *len_word,int fg)
 {
 	while (s1[i])
 	{
@@ -24,7 +24,7 @@ void	ft_get_len(char *s1,int i, size_t *len_word)
 					ft_parq(s1, &i, 's');
 			(*len_word) += i;
 		}
-		else if(!get_des(s1[i]))
+		else if(!get_des(s1[i],fg))
 		{
 			i++;
 			(*len_word)++;
