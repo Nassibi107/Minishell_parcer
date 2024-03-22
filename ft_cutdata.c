@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:47:24 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/22 16:42:32 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:46:08 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	get_first_word(char *str)
 
 
 	i = 0;
+	is_quot_(str, &i);
 	while ((str[i] != 9  && str[i] != 32) && str[i])
 		i++;
 	return(i);
@@ -40,7 +41,7 @@ char *ft_get_word(char *s)
 	int len;
 	char *word;
 	int i = 0;
-	while(s[i] == 9  || s[i] == 32)
+	while(s[i] == 9 || s[i] == 32)
 		s++;
 	i = 0;
 	len = get_first_word(s);
