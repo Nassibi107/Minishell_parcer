@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/20 12:37:38 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:05:20 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,4 @@ t_minishell	*last_shell(t_minishell *lst);
 t_minishell	*new_shell(char **cmd,char **atcmd ,int *arr,int len );
 t_minishell	*get_data(t_docker *cmp,int *arr,int len);
 char	**ft_splits(char *s,char fg);
+char	**ft_files(char **s);

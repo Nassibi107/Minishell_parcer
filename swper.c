@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcer.c                                           :+:      :+:    :+:   */
+/*   swper.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 15:14:55 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/22 15:40:45 by ynassibi         ###   ########.fr       */
+/*   Created: 2024/03/20 14:18:46 by ynassibi          #+#    #+#             */
+/*   Updated: 2024/03/20 14:38:02 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parcer.h"
+#include "parcer.c"
 
 
 
-int	main(int ac, char **av, char **env)
-{
-	char	*str;
-
-	while (1)
-	{
-		str = readline("minishell $> ");
-		add_history(str);
-		parcing(str);
-		free (str);
-	}
-	return (0);
-}

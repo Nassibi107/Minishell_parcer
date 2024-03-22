@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/20 12:47:42 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:43:29 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ t_docker	*parcing(char *str)
 	while (cmp)
 	{
 		i = 0;
-		printf("--------------------\n");
-			printf("cmd:%s\n",cmp->cmd);
 		printf("\n");
 		while(cmp->cmds[i])
 		{
 			printf("cmds[%i]:%s\n",i,cmp->cmds[i]);
 			i++;
 		}
-		i = 0;
+		printf("--------------------\n");
+		i = 1;
 		if (cmp->files)
 		{
 			while(cmp->files[i])
