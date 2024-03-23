@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:00:54 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/23 15:37:00 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/23 16:04:49 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 
-int	*ft_split_arr(int *b_arr , int alen, int *i)
+int	*ft_split_arr(int *b_arr , int alen, int *i, int *arr_len)
 {
 
 	int ii = 0;
@@ -38,7 +38,7 @@ int	*ft_split_arr(int *b_arr , int alen, int *i)
 	}
 	(*i)++;
 	t = 0;
-
+	*arr_len = len;
 	return (arr);
 }
 

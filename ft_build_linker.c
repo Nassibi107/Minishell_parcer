@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/23 15:54:28 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/23 16:04:37 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_docker	*get_link_cmd(char **str,int *b_arr,int len)
 	char	*strs;
 	int	*id = 0;
 	int ii = 0;
+	int arr_len = 0;
 	head = 0x0;
 	i = 0;
 	while(str[i])
@@ -83,7 +84,8 @@ t_docker	*get_link_cmd(char **str,int *b_arr,int len)
 	tk = head;
 	while(tk)
 	{
-		tk->arr = ft_split_arr(b_arr, len, &ii);
+		tk->arr = ft_split_arr(b_arr, len, &ii, &arr_len);
+		tk->alen = arr_len ;
 		tk = tk->next;
 	}
 	return (head);

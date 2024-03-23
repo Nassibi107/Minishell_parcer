@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/23 15:44:57 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/23 16:05:08 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@ t_docker	*parcing(char *str)
 	t_docker *cmp;
 	len = ft_set_tk(str);
 	arr = ft_arr_tk(str, len);
-	int iii = 0;
-	while (iii  <3)
-		{
-			ft_split_arr(arr,len,&i);
-			iii++;
-		}
 	i = 0;
 	char **strs = ft_spliter(str);
 	cmp = get_link_cmd(strs,arr,len);
@@ -67,16 +61,18 @@ t_docker	*parcing(char *str)
 		}
 		else
 			printf("afcmd [x]: NULL");
-		printf("---------arr :-----------\n");
+		printf("---------len :-----------\n");
 		i = 0;
 		if (cmp->arr)
 		{
-			while(i  < 2)
+			while(i  < cmp->alen)
 		{
 			printf("arr [%i]: %i\n",i,cmp->arr[i]);
 			i++;
 		}
 		}
+		printf("---------len :-----------\n");
+		printf("%d",cmp->alen);
 		printf("\n--------------------\n");
 		cmp =  cmp->next;
 	}
