@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:00:54 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/23 16:04:49 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/24 14:17:01 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,24 @@ int	*ft_split_arr(int *b_arr , int alen, int *i, int *arr_len)
 	int	*arr;
 	int	len;
 	int	t = *i;
+
 	len = 0;
-	while(b_arr[*i] && *i < alen)
+
+	while(*i < (alen))
 	{
 		if (b_arr[*i] == 0)
 			break;
 		(*i)++;
 		len++;
 	}
-	arr = malloc(4 * len);
-	while (b_arr[t])
+	arr = malloc(sizeof(int) * len );
+	while (ii  <len)
 	{
-		arr[ii] = b_arr[t++];
+		arr[ii] = b_arr[t];
+		t++;
 		ii++;
 	}
 	(*i)++;
-	t = 0;
 	*arr_len = len;
 	return (arr);
 }

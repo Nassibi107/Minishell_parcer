@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:10:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/03/23 17:38:27 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/23 18:04:38 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_docker
 	char	**afcmd;
 	int	*arr;
 	int	alen;
-	struct node	*next;
+	struct s_docker	*next;
 } t_docker;
 
 
