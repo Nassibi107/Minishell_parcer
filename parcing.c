@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/24 14:05:35 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/29 14:27:42 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_docker	*parcing(char *str)
 
 	i = 0;
 	char **strs = ft_spliter(str);
+	// while(strs[i])
+	// 	printf("%s\n",strs[i++]);
 	cmp = get_link_cmd(strs,arr,len);
 	while (cmp)
 	{
@@ -55,7 +57,7 @@ t_docker	*parcing(char *str)
 		{
 			while(cmp->afcmd[i])
 		{
-			if (ft_strlen(cmp->afcmd[i]))
+			if (ft_strlen(cmp->afcmd[i]) > 1)
 				printf("afcmd [%i]: %s\n",i,cmp->afcmd[i]);
 			i++;
 		}

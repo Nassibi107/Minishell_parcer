@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:21:56 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/17 15:31:10 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/29 14:04:37 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	*hook(char *s1, int *id)
 		(*id)++;
 	i = *id;
 	hudler_o(s1, i, &op, &len_word);
-	word = malloc(sizeof(char) * (len_word + 1));
+	word = malloc(sizeof(char) * (len_word + 2));
 	if (!word)
 		return (NULL);
 	return (hudler_t(s1, word, id));

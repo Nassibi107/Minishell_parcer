@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/24 13:51:53 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/29 14:25:52 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "parcer.h"
 #include <stdio.h>
 
-t_docker	*lst_cmd(char *cmd,char *file,int *i)
+t_docker	*lst_cmd(char *cmd,char *file,int *arr ,int len)
 {
 	t_docker	*lst;
 
@@ -25,6 +25,8 @@ t_docker	*lst_cmd(char *cmd,char *file,int *i)
 	lst->cmds = ft_splits(cmd ,0);
 	lst->afcmd = ft_after_cmd(ft_splits(file,1));
 	lst->files = ft_files(ft_splits(file,1));
+	lst->arr = arr ;
+	lst->alen = len;
 	lst->next = 0x0;
 	return (lst);
 }
@@ -68,25 +70,25 @@ t_docker	*get_link_cmd(char **str,int *b_arr,int len)
 	int	*id = 0;
 	int ii = 0;
 	int arr_len = 0;
+	int	*arr ;
+	int	lens;
 	head = 0x0;
 	i = 0;
 	while(str[i])
 	{
 		strs = ft_splits(str[i],1)[0];
+		lens = ft_set_tk(str[i]);
+		arr = ft_arr_tk(str[i], len);
 		if (i < len)
 
-			cmd = lst_cmd(strs,str[i],NULL);
+			cmd = lst_cmd(strs,str[i], arr,lens);
 		else
-			cmd = lst_cmd(strs,str[i],NULL);
+			cmd = lst_cmd(strs,str[i], arr,lens);
+
 		add_back_executor(&head , cmd);
 		i++;
 	}
 	tk = head;
-	while(tk)
-	{
-		tk->arr = ft_split_arr(b_arr, len, &ii, &arr_len);
-		tk->alen = arr_len ;
-		tk = tk->next;
-	}
+
 	return (head);
 }

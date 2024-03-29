@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:06:43 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/17 13:34:45 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/29 14:08:26 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ char	*hudler_t(char *s1, char *word, int *id)
 
 	i = 0;
 	op = 0;
+	word[i++] = ' ';
 	while (s1[*id] && (!ft_vtk(s1[*id])))
 	{
 		if (s1[*id] == '\'' || s1[*id] == '\"')
