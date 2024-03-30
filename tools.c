@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 19:17:36 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/14 11:02:57 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:27:06 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,16 @@ int	ft_set_tk(char *str)
 			else if  (str[i] == '\"')
 				op = ft_parq(str, &i, 'q');
 			op =  0;
+			if (!str[i])
+				break;
 		}
 		if (str[i] == '|')
 			len += 1;
-		else if (str[i] == '<')
+		if (str[i] == '<')
 			case_1(str[i], &i, &len);
 		else if (str[i] == '>')
 			case_2(str[i], &i, &len);
+		   
 		i++;
 	}
 	return (len);

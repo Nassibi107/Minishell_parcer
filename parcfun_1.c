@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/24 13:51:25 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:28:46 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	*ft_arr_tk(char *str, int len)
 			case_one(arr, str[i + 1], &i, &j);
 		else if (str[i] == '>')
 			case_two(arr, str[i + 1], &i, &j);
+		if (!str[i])
+			break;
 		i++;
 	}
 	return (arr);
