@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/31 14:59:18 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/31 15:25:18 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,27 @@
 #include "parcer.h"
 #include <stdio.h>
 
-t_docker	*lst_cmd(char *cmd, char *file, int *arr, int len)
+t_minishell	*lst_cmd(char *cmd, char *file, int *arr, int len)
 {
-	t_docker	*lst;
+	t_minishell	*lst;
 
-	lst = malloc(sizeof(t_docker));
+	lst = malloc(sizeof(t_minishell));
 	if (!lst)
 		return (NULL);
-	lst->cmds = ft_splits(cmd, 0);
-	lst->afcmd = ft_after_cmd(ft_splits(file, 1));
+	lst->cmdt = ft_splits(cmd, 0);
+	lst->afcmd_t = ft_after_cmd(ft_splits(file, 1));
 	lst->files = ft_files(ft_splits(file, 1));
-	lst->arr = arr;
-	lst->alen = len;
-	lst->con = ft_splits(ft_join(ft_concat(lst->cmds,++lst->afcmd )),0);
+	lst->tab = arr;
+	lst->len_tab = len;
+	lst->cmd = ft_splits(ft_join(\
+	ft_concat(lst->cmdt,++lst->afcmd_t )),0);
 	lst->next = 0x0;
 	return (lst);
 }
 
-t_docker	*last_cmd(t_docker *lst)
+t_minishell	*last_cmd(t_minishell *lst)
 {
-	t_docker	*tmp;
+	t_minishell	*tmp;
 
 	if (!lst)
 		return (NULL);
@@ -43,13 +44,13 @@ t_docker	*last_cmd(t_docker *lst)
 	return (tmp);
 }
 
-void	lstaddfront(t_docker **head, t_docker *node)
+void	lstaddfront(t_minishell **head, t_minishell *node)
 {
 	node->next = (*head);
 	(*head) = node;
 }
 
-void	add_back_executor(t_docker **head, t_docker *node)
+void	add_back_executor(t_minishell **head, t_minishell *node)
 {
 	if (!head || !node)
 		return ;
@@ -59,10 +60,10 @@ void	add_back_executor(t_docker **head, t_docker *node)
 	node->next = NULL;
 }
 
-t_docker	*get_link_cmd(char **str, int *b_arr, int len)
+t_minishell	*get_link_cmd(char **str, int *b_arr, int len)
 {
-	t_docker	*head;
-	t_docker	*cmd;
+	t_minishell	*head;
+	t_minishell	*cmd;
 	int			lens;
 	int			i;
 	int			*arr;

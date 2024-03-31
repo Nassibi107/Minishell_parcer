@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:00:46 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/31 14:28:06 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/31 15:35:56 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ char**	ft_concat(char** arr1, char** arr2) {
 	int	rows1;
 	int	rows2;
 	char	**concatenated;
-	int i = 0;
+	int	i;
+	int	j;
+	i = 0;
 	rows1 = calculateRows(arr1);
 	rows2 = calculateRows(arr2);
-
 	concatenated = malloc((rows1 + rows2 + 1) * sizeof(char**));
 	while (i < rows1)
 	{
 		concatenated[i] = ft_strdup(arr1[i]) ;
 		i++;
 	}
-
-	int j = 0;
+	j = 0;
 	while (j < rows2)
 	{
 		concatenated[i] = ft_strdup(arr2[j]);

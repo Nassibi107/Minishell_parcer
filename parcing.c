@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/31 14:59:38 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/31 15:25:18 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "parcer.h"
 #include <stdio.h>
 
-t_docker	*parcing(char *str)
+t_minishell	*parcing(char *str)
 {
 	int i = 0;
 	int	*arr ;
 	int	len;
-	t_docker *cmp;
+	t_minishell *cmp;
 	len = ft_set_tk(str);
 	arr = ft_arr_tk(str, len);
 
@@ -34,9 +34,9 @@ t_docker	*parcing(char *str)
 		i = 0;
 		printf("\n");
 		printf("---------commad:-----------\n");
-		while(cmp->cmds[i])
+		while(cmp->cmdt[i])
 		{
-			printf("cmds[%i]:%s\n",i,cmp->cmds[i]);
+			printf("cmdt[%i]:%s\n",i,cmp->cmdt[i]);
 			i++;
 		}
 		printf("---------FILES:-----------\n");
@@ -53,26 +53,26 @@ t_docker	*parcing(char *str)
 			printf("file [x]: NULL");
 		i = 0;
 		printf("---------after command:-----------\n");
-			while(cmp->afcmd[i])
+			while(cmp->afcmd_t[i])
 			{
-					printf("afcmd [%i]: %s\n",i,cmp->afcmd[i]);
+					printf("afcmd_t [%i]: %s\n",i,cmp->afcmd_t[i]);
 				i++;
 			}
 		printf("---------arr[x] :-----------\n");
 		i = 0;
-		if (cmp->arr)
+		if (cmp->tab)
 		{
-			while(i  < cmp->alen)
+			while(i  < cmp->len_tab)
 			{
-				printf("arr [%i]: %i\n",i,cmp->arr[i]);
+				printf("tab [%i]: %i\n",i,cmp->tab[i]);
 				i++;
 			}
 		}
-		printf("len : %d\n",cmp->alen);
+		printf("len : %d\n",cmp->len_tab);
 		printf("\n--------------------\n");
 		i= 0;
-		while(cmp->con[i])
-			printf("%s\n",cmp->con[i++]);
+		while(cmp->cmd[i])
+			printf("%s\n",cmp->cmd[i++]);
 		cmp =  cmp->next;
 	}
 	return (NULL);
