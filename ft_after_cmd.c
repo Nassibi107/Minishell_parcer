@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 13:25:02 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/30 14:49:00 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/30 16:07:14 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*get_word(char **strs,int len)
+char	*get_word(char **strs, int len)
 {
 	char	*word;
-
-	int	ii;
-	int	j;
-	int	i;
+	int		ii;
+	int		j;
+	int		i;
 
 	i = 0;
 	ii = 0;
-	word = malloc(len + 1 );
+	word = malloc(len + 1);
 	while (strs[ii])
 	{
 		j = 0;
-		while(strs[ii][j])
+		while (strs[ii][j])
 			word[i++] = strs[ii][j++];
 		if (strs[ii])
 			word[i++] = ' ';
@@ -43,38 +42,41 @@ int	strs_len(char **str)
 {
 	int	i;
 	int	j;
-	int	len  = 0;
+	int	len;
+
+	len = 0;
 	j = 0;
 	i = 0;
 	while (str[i])
 	{
 		j = 0;
-		while(str[i][j])
+		while (str[i][j])
 			j++;
 		len += j;
 		i++;
 	}
-	return(len + i);
+	return (len + i);
 }
-char *ft_aftercmd(char *s)
+
+char	*ft_aftercmd(char *s)
 {
-	int	len;
-	int	i;
-	int	q;
+	int		len;
+	int		i;
+	int		q;
 	char	**strs;
+
 	i = 0;
 	q = 0;
-	while(s[i] == 9 || s[i] == 32)
+	while (s[i] == 9 || s[i] == 32)
 		s++;
 	is_quot_(s, &q);
 	s += q;
-	while ((s[i] != 9  && s[i] != 32) && s[i])
+	while ((s[i] != 9 && s[i] != 32) && s[i])
 		s++;
 	strs = ft_splits(s, 0);
 	len = strs_len(strs);
-	return (get_word(strs,len));
+	return (get_word(strs, len));
 }
-
 
 char	**ft_after_cmd(char **s)
 {
@@ -99,5 +101,5 @@ char	**ft_after_cmd(char **s)
 		i++;
 	}
 	arr[i] = 0;
-	return(arr);
+	return (arr);
 }

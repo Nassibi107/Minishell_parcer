@@ -1,0 +1,60 @@
+epur_str.c: OK!
+ft_after_cmd.c: OK!
+ft_build_linker.c: OK!
+ft_cutdata.c: OK!
+ft_ft_vtk.c: OK!
+parcer.c: OK!
+parcfun_1.c: OK!
+parcfun_2.c: OK!
+parcing.c: Error!
+Error: SPACE_REPLACE_TAB    (line:  20, col:   8):	Found space when expecting tab
+Error: DECL_ASSIGN_LINE     (line:  20, col:  11):	Declaration and assignation on a single line
+Error: SPACE_REPLACE_TAB    (line:  23, col:  13):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  23, col:  14):	Misaligned variable declaration
+Error: NL_AFTER_VAR_DECL    (line:  24, col:   1):	Variable declarations must be followed by a newline
+Error: EMPTY_LINE_FUNCTION  (line:  26, col:   1):	Empty line in function
+Error: VAR_DECL_START_FUNC  (line:  28, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:  28, col:   9):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  28, col:  10):	Misaligned variable declaration
+Error: DECL_ASSIGN_LINE     (line:  28, col:  17):	Declaration and assignation on a single line
+Error: WRONG_SCOPE_COMMENT  (line:  29, col:   5):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line:  30, col:   5):	Comment is invalid in this scope
+Error: SPC_AFTER_OPERATOR   (line:  31, col:  28):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  31, col:  32):	missing space after operator
+Error: SPACE_AFTER_KW       (line:  37, col:   9):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  37, col:  14):	Missing space before parenthesis (brace/bracket)
+Error: SPC_AFTER_OPERATOR   (line:  39, col:  35):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  39, col:  37):	missing space after operator
+Error: SPACE_AFTER_KW       (line:  46, col:  13):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  46, col:  18):	Missing space before parenthesis (brace/bracket)
+Error: TOO_FEW_TAB          (line:  47, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  48, col:   1):	Missing tabs for indent level
+Error: SPC_AFTER_OPERATOR   (line:  48, col:  37):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  48, col:  39):	missing space after operator
+Error: TOO_FEW_TAB          (line:  49, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  50, col:   1):	Missing tabs for indent level
+Error: SPACE_AFTER_KW       (line:  58, col:  13):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  58, col:  18):	Missing space before parenthesis (brace/bracket)
+Error: TOO_FEW_TAB          (line:  59, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  60, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  61, col:   1):	Missing tabs for indent level
+Error: SPC_AFTER_OPERATOR   (line:  61, col:  42):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  61, col:  44):	missing space after operator
+Error: TOO_FEW_TAB          (line:  62, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  63, col:   1):	Missing tabs for indent level
+Error: SPACE_AFTER_KW       (line:  71, col:  13):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  71, col:  18):	Missing space before parenthesis (brace/bracket)
+Error: CONSECUTIVE_SPC      (line:  71, col:  20):	Two or more consecutives spaces
+Error: TOO_FEW_TAB          (line:  72, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  73, col:   1):	Missing tabs for indent level
+Error: SPC_AFTER_OPERATOR   (line:  73, col:  36):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  73, col:  38):	missing space after operator
+Error: TOO_FEW_TAB          (line:  74, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  75, col:   1):	Missing tabs for indent level
+Error: SPC_AFTER_OPERATOR   (line:  78, col:  20):	missing space after operator
+Error: CONSECUTIVE_SPC      (line:  80, col:  14):	Two or more consecutives spaces
+Error: TOO_MANY_LINES       (line:  83, col:   1):	Function has more than 25 lines
+tools.c: Error!
+Error: TOO_MANY_LINES       (line:  65, col:   1):	Function has more than 25 lines
+tools_1.c: OK!
+tools_2.c: OK!

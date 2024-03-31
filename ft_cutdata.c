@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:47:24 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/22 17:46:08 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/30 16:00:04 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,35 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int	get_first_word(char *str)
 {
-	int i;
-
+	int	i;
 
 	i = 0;
 	is_quot_(str, &i);
-	while ((str[i] != 9  && str[i] != 32) && str[i])
+	while ((str[i] != 9 && str[i] != 32) && str[i])
 		i++;
-	return(i);
+	return (i);
 }
-int ft_strldd(char **str)
+
+int	ft_strldd(char **str)
 {
 	int	len;
+
 	len = 0;
 	while (str[len])
 		len++;
 	return (len);
 }
 
-char *ft_get_word(char *s)
+char	*ft_get_word(char *s)
 {
-	int len;
-	char *word;
-	int i = 0;
-	while(s[i] == 9 || s[i] == 32)
+	int		len;
+	int		i;
+	char	*word;
+
+	i = 0;
+	while (s[i] == 9 || s[i] == 32)
 		s++;
 	i = 0;
 	len = get_first_word(s);
@@ -56,6 +58,7 @@ char *ft_get_word(char *s)
 	word[i] = 0;
 	return (word);
 }
+
 char	**ft_files(char **s)
 {
 	char	**arr;
@@ -79,5 +82,5 @@ char	**ft_files(char **s)
 		i++;
 	}
 	arr[i] = 0;
-	return(arr);
+	return (arr);
 }

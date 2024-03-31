@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/23 16:04:42 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:08:34 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ char	**ft_splits(char *s,char fg);
 char	**ft_files(char **s);
 char	**ft_after_cmd(char **s);
 int	ft_strldd(char **str);
+int	ft_vtk(char c);
+char	**ft_concat(char **arr_1, char **arr_2);
 int	*ft_split_arr(int *b_arr , int alen, int *i, int *arr_len);

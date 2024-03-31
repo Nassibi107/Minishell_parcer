@@ -6,20 +6,12 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/29 18:28:46 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/30 16:12:03 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
 #include <stdlib.h>
-
-int	ft_vtk(char c)
-{
-	if (c == '|')
-		return (1);
-	return (0);
-}
-
 
 static void	case_one(int *arr, char c, int *i, int *j)
 {
@@ -58,7 +50,7 @@ int	*ft_arr_tk(char *str, int len)
 	int	j;
 	int	op;
 
-	arr = malloc((len + 1 )* sizeof(int));
+	arr = malloc((len + 1) * sizeof(int));
 	i = 0;
 	j = 0;
 	while (str[i] && j < len)
@@ -71,13 +63,13 @@ int	*ft_arr_tk(char *str, int len)
 		else if (str[i] == '>')
 			case_two(arr, str[i + 1], &i, &j);
 		if (!str[i])
-			break;
+			break ;
 		i++;
 	}
 	return (arr);
 }
 
-void fun (char *str,int *i)
+void	fun(char *str, int *i)
 {
 	int	op;
 
@@ -107,7 +99,6 @@ int	number_of_word(char *str)
 
 	i = 0;
 	wc = 0;
-
 	while (str[i])
 	{
 		if (ft_vtk(str[i]))
@@ -115,7 +106,7 @@ int	number_of_word(char *str)
 		else
 		{
 			wc++;
-			fun(str,&i);
+			fun(str, &i);
 		}
 	}
 	return (wc);

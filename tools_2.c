@@ -6,52 +6,54 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:55:01 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/20 12:37:16 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/30 16:22:33 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parcer.c"
+#include "parcer.h"
 
-void	ft_get_len(char *s1,int i, size_t *len_word,int fg)
+void	ft_get_len(char *s1, int i, size_t *len_word, int fg)
 {
 	while (s1[i])
 	{
 		if (s1[i] == '\'' || s1[i] == '\"')
 		{
 			if (s1[i] == '\"' )
-				 ft_parq(s1, &i, 'q');
+				ft_parq(s1, &i, 'q');
 			else if (s1[i] == '\'')
-					ft_parq(s1, &i, 's');
+				ft_parq(s1, &i, 's');
 			(*len_word) += i;
 		}
-		else if(!get_des(s1[i],fg))
+		else if (!get_des(s1[i], fg))
 		{
 			i++;
 			(*len_word)++;
 		}
 		else
-			break;
+			break ;
 	}
 }
-void	is_quot_(char *str,int *i)
+
+void	is_quot_(char *str, int *i)
 {
 	if (str[*i] == '\'' || str[*i] == '\"')
 	{
-		if(str[*i] == '\'')
+		if (str[*i] == '\'')
 		{
 			(*i)++;
-			while(str[*i] != '\'')
+			while (str[*i] != '\'')
 				(*i)++;
 		}
-		else if(str[*i] == '\"')
+		else if (str[*i] == '\"')
 		{
 			(*i)++;
-			while(str[*i] != '\"')
+			while (str[*i] != '\"')
 				(*i)++;
 		}
 	}
 	return ;
 }
+
 void	hund(char *s1, int *id, int *i, char *word)
 {
 	int	op;
