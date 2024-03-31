@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/31 00:40:55 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/03/31 14:59:18 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_docker	*lst_cmd(char *cmd, char *file, int *arr, int len)
 	lst->files = ft_files(ft_splits(file, 1));
 	lst->arr = arr;
 	lst->alen = len;
-	lst->con = ft_concat(lst->cmds,++lst->afcmd );
+	lst->con = ft_splits(ft_join(ft_concat(lst->cmds,++lst->afcmd )),0);
 	lst->next = 0x0;
 	return (lst);
 }
