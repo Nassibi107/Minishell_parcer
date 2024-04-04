@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_cleantach.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:54:46 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/03 13:57:57 by ynassibi         ###   ########.fr       */
+/*   Created: 2024/04/01 17:14:43 by ynassibi          #+#    #+#             */
+/*   Updated: 2024/04/01 17:16:43 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "parcer.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_cleantach(char **s)
 {
-	int		i;
-	t_list	*poiter;
-	t_list	*temp;
+	int	i;
 
-	if (!del || !lst)
-		return ;
-	i = ft_lstsize(*lst);
-	poiter = *lst;
-	while (i > 0)
+	i = 0;
+	while (s[i])
 	{
-		temp = poiter->next;
-		(*del)(poiter->content);
-		// free(poiter);
-		poiter = temp;
-		i--;
+		free(s[i]);
+		i++;
 	}
-	*lst = NULL;
+	free(s);
+	s = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:10:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/03/31 15:25:54 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:06:16 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@
 #include <unistd.h>
 #include <readline/readline.h>
 
-typedef	struct	s_bagages
-{
-	int	*fd;
-	int	pipe_fd[2];
-} t_bagages;
 
 
 
@@ -38,6 +33,7 @@ typedef struct s_minishell
 	int	len_tab;
 	struct s_minishell	*next;
 } t_minishell;
+
 
 
 //yassine

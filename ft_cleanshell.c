@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_cleanshell.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:54:46 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/03 13:57:57 by ynassibi         ###   ########.fr       */
+/*   Created: 2024/04/01 17:19:55 by ynassibi          #+#    #+#             */
+/*   Updated: 2024/04/03 13:57:25 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
+#include "parcer.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+
+void ft_cleanshell(t_minishell **node)
 {
-	int		i;
-	t_list	*poiter;
-	t_list	*temp;
+	t_minishell	*temp;
+	t_minishell	*current;
 
-	if (!del || !lst)
-		return ;
-	i = ft_lstsize(*lst);
-	poiter = *lst;
-	while (i > 0)
+	current = *node;
+	while (current)
 	{
-		temp = poiter->next;
-		(*del)(poiter->content);
-		// free(poiter);
-		poiter = temp;
-		i--;
+		temp = current->next;
+		ft_cleantach(current->cmd);
+		ft_cleantach(current->cmdt);
+		ft_cleantach(current->files);
+		ft_cleantach(current->afcmd_t);
+		current = temp;
+		//  free(current);
 	}
-	*lst = NULL;
+	node = NULL;
 }

@@ -1,0 +1,5 @@
+ft_concat.c: Error!
+Error: MISALIGNED_VAR_DECL  (line:  37, col:  13):	Misaligned variable declaration
+Error: CONSECUTIVE_NEWLINES (line:  41, col:   1):	Consecutive newlines
+Error: EMPTY_LINE_FUNCTION  (line:  41, col:   1):	Empty line in function
+Error: SPACE_AFTER_KW       (line:  45, col:  57):	Missing space after keyword

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/31 15:25:18 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/03 13:57:17 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,18 @@ t_minishell	*parcing(char *str)
 	int	*arr ;
 	int	len;
 	t_minishell *cmp;
+
+
+
 	len = ft_set_tk(str);
 	arr = ft_arr_tk(str, len);
 
 	i = 0;
 	char **strs = ft_spliter(str);
+
 	// while(strs[i])
 	// 	printf("%s\n",strs[i++]);
-	cmp = get_link_cmd(strs,arr,len);
+	cmp = get_link_cmd(strs, len);
 	while (cmp)
 	{
 		i = 0;
@@ -75,5 +79,6 @@ t_minishell	*parcing(char *str)
 			printf("%s\n",cmp->cmd[i++]);
 		cmp =  cmp->next;
 	}
-	return (NULL);
+	return (cmp);
+
 }

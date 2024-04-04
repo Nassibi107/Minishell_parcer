@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 13:25:02 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/31 14:12:21 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/03 13:57:00 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char	*ft_aftercmd(char *s)
 	while ((s[i] != 9 && s[i] != 32) && s[i])
 		s++;
 	strs = ft_splits(s, 0);
+
 	len = strs_len(strs);
 	return (get_word(strs, len));
 }
@@ -101,5 +102,6 @@ char	**ft_after_cmd(char **s)
 		i++;
 	}
 	arr[i] = 0;
+
 	return (arr);
 }

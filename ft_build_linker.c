@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/31 15:25:18 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/03 13:57:06 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,15 @@ void	add_back_executor(t_minishell **head, t_minishell *node)
 	node->next = NULL;
 }
 
-t_minishell	*get_link_cmd(char **str, int *b_arr, int len)
+t_minishell	*get_link_cmd(char **str, int len)
 {
 	t_minishell	*head;
 	t_minishell	*cmd;
 	int			lens;
 	int			i;
 	int			*arr;
+	char			*arar;
+	char **strss;
 
 	head = 0x0;
 	i = 0;
@@ -74,10 +76,11 @@ t_minishell	*get_link_cmd(char **str, int *b_arr, int len)
 	{
 		lens = ft_set_tk(str[i]);
 		arr = ft_arr_tk(str[i], len);
+		strss = ft_splits(str[i], 1);
 		if (i < len)
-			cmd = lst_cmd(ft_splits(str[i], 1)[0], str[i], arr, lens);
+			cmd = lst_cmd(strss[0], str[i], arr, lens);
 		else
-			cmd = lst_cmd(ft_splits(str[i], 1)[0], str[i], arr, lens);
+			cmd = lst_cmd(strss[0] , str[i], arr, lens);
 		add_back_executor(&head, cmd);
 		i++;
 	}
