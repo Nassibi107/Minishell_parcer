@@ -6,38 +6,13 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:36:15 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/04 15:09:42 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:09:49 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "parcer.h"
 
-int	pip_check(char *str)
-{
-	int	i;
-	int	t;
-
-	t = 0;
-	i = 0;
-	if (str[i] == '|')
-		return (1);
-	while (str[i])
-	{
-		if (str[i] == '|' )
-		{
-			while (str[i] == '|')
-			{
-				i++;
-				t++;
-			}
-			if (t >= 3)
-				return (1);
-		}
-		i++;
-	}
-	return (0);
-}
 
 int	red_check(char *str)
 {

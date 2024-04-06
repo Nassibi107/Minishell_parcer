@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/03 13:57:17 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:42:10 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_minishell	*parcing(char *str)
 	// while(strs[i])
 	// 	printf("%s\n",strs[i++]);
 	cmp = get_link_cmd(strs, len);
+	ft_cleantach(strs);
+	free(arr);
 	while (cmp)
 	{
 		i = 0;
@@ -74,7 +76,7 @@ t_minishell	*parcing(char *str)
 		}
 		printf("len : %d\n",cmp->len_tab);
 		printf("\n--------------------\n");
-		i= 0;
+		i = 0;
 		while(cmp->cmd[i])
 			printf("%s\n",cmp->cmd[i++]);
 		cmp =  cmp->next;

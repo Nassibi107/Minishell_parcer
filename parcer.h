@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/03 13:50:59 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:41:26 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ char	**ft_concat(char **arr_1, char **arr_2);
 int	*ft_split_arr(int *b_arr , int alen, int *i, int *arr_len);
 char	*ft_join(char **str);
 void	ft_cleantach(char **s);
-void ft_cleanshell(t_minishell **node);
+void ft_cleanshell(t_minishell *node);
 int	ft_checker(char *str);
+int	pip_check(char *str);
