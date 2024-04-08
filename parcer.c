@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:14:55 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 13:28:35 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:36:28 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,22 @@ int	main(int ac, char **av, char **env)
 	int	p;
 	char	*str;
 	t_minishell *head;
+	atexit(lk);
 	// while (1)
 	// {
 		str = readline("minishell $> ");
 		p = ft_checker(str);
 		add_history(str);
 		ft_puterror(p);
-		// if (p != -1)
-		// 	continue;
+		if (p != -1)
+		{
+			free(str);
+			exit(1);
+		}
 		head = parcing(str);
-		// free(str);
+		free(str);
+		str = NULL;
 	// }
 	ft_cleanshell(&head);
-	 atexit(lk);
 	return (0);
 }
