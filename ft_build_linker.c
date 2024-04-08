@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/03 13:57:06 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:34:20 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 t_minishell	*lst_cmd(char *cmd, char *file, int *arr, int len)
 {
 	t_minishell	*lst;
+	char *s;
+	char **str;
 
 	lst = malloc(sizeof(t_minishell));
 	if (!lst)
@@ -26,8 +28,11 @@ t_minishell	*lst_cmd(char *cmd, char *file, int *arr, int len)
 	lst->files = ft_files(ft_splits(file, 1));
 	lst->tab = arr;
 	lst->len_tab = len;
-	lst->cmd = ft_splits(ft_join(\
-	ft_concat(lst->cmdt,++lst->afcmd_t )),0);
+	str = ft_concat(lst->cmdt,++lst->afcmd_t );
+	s = ft_join(str);
+	lst->cmd = ft_splits(s ,0);
+	--lst->afcmd_t;
+	free(s);
 	lst->next = 0x0;
 	return (lst);
 }

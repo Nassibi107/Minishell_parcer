@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:47:24 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/30 16:00:04 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:35:05 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ char	**ft_files(char **s)
 		i++;
 	}
 	arr[i] = 0;
+	ft_cleantach(s);
 	return (arr);
 }

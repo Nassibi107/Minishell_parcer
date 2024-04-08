@@ -6,19 +6,20 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:14:55 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/04 14:55:55 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:28:35 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
 #include "libft/libft.h"
+#include "minishell.h"
 #include <stdlib.h>
 
 
-// void lk()
-// {
-// 	system("leaks minishell");
-// }
+void lk()
+{
+	system("leaks minishell");
+}
 
 void	ft_puterror(int p)
 {
@@ -38,16 +39,19 @@ int	main(int ac, char **av, char **env)
 {
 	int	p;
 	char	*str;
-	while (1)
-	{
+	t_minishell *head;
+	// while (1)
+	// {
 		str = readline("minishell $> ");
 		p = ft_checker(str);
 		add_history(str);
 		ft_puterror(p);
-		if (p != -1)
-			continue;
-		parcing(str);
-	}
-	// atexit(lk);
+		// if (p != -1)
+		// 	continue;
+		head = parcing(str);
+		// free(str);
+	// }
+	ft_cleanshell(&head);
+	 atexit(lk);
 	return (0);
 }
