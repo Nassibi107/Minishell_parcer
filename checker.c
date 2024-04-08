@@ -6,13 +6,12 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:36:15 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/06 14:09:49 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:10:46 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "parcer.h"
-
 
 int	red_check(char *str)
 {

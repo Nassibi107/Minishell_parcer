@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:00:46 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/06 14:46:51 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:42:24 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**ft_concat(char **arr1, char **arr2)
 {
 	int	rows1;
 	int	rows2;
-	char		**concatenated;
+	char	**concatenated;
 	int	i;
 	int	j;
 
@@ -56,6 +56,5 @@ char	**ft_concat(char **arr1, char **arr2)
 		i++;
 	}
 	concatenated [rows1 + rows2] = NULL;
-	
 	return (concatenated);
 }
