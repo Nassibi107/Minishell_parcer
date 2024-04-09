@@ -6,13 +6,12 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:00:46 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 14:39:53 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:37:34 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "parcer.h"
-
 
 int	calculaterows(char **arr)
 {
@@ -33,17 +32,16 @@ int	calculatecols(char	**arr)
 
 char	**ft_concat(char **arr1, char **arr2)
 {
-	int	rows1;
-	int	rows2;
+	int		rows1;
+	int		rows2;
 	char	**concatenated;
-	int	i;
-	int	j;
-
+	int		i;
+	int		j;
 
 	i = 0;
 	rows1 = calculaterows(arr1);
 	rows2 = calculaterows(arr2);
-	concatenated = malloc((rows1 + rows2 + 1) * sizeof (char**));
+	concatenated = malloc((rows1 + rows2 + 1) * sizeof(char *));
 	while (i < rows1)
 	{
 		concatenated[i] = ft_strdup(arr1[i]);

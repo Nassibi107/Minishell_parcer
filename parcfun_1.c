@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/30 16:12:03 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:46:29 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	*ft_arr_tk(char *str, int len)
 	int	*arr;
 	int	i;
 	int	j;
-	int	op;
 
 	arr = malloc((len + 1) * sizeof(int));
 	i = 0;
@@ -95,7 +94,6 @@ int	number_of_word(char *str)
 {
 	int	i;
 	int	wc;
-	int	*arr;
 
 	i = 0;
 	wc = 0;

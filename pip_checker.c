@@ -6,13 +6,13 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:53:06 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/06 14:11:28 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:48:14 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
 
-int pip_check_close(char *str)
+int	pip_check_close(char *str)
 {
 	int	i;
 
@@ -26,33 +26,35 @@ int pip_check_close(char *str)
 				i++;
 			while ((str[i] == 9 || str[i] == 32) && str[i])
 				i++;
-			if (str[i] == '|' ||  !str[i])
+			if (str[i] == '|' || !str[i])
 				return (1);
 		}
 		i++;
 	}
 	return (0);
 }
+
 int	pip_loading(char *str, int *i, int *t)
 {
-		if (str[*i] == '|')
+	if (str[*i] == '|')
+	{
+		while (str[*i] == '|')
 		{
-			while (str[*i] == '|')
-			{
-				if ((str[*i] == 9 || str[*i] == 32) && str[*i])
-					i++;
-				(*i)++;
-				(*t)++;
-			}
-			if (!str[*i])
-					return (1);
-			if (*t >= 2)
-				return (1);
-			(*t)= 0;
+			if ((str[*i] == 9 || str[*i] == 32) && str[*i])
+				i++;
+			(*i)++;
+			(*t)++;
 		}
-		(*i)++;
-		return (0);
+		if (!str[*i])
+			return (1);
+		if (*t >= 2)
+			return (1);
+		(*t) = 0;
+	}
+	(*i)++;
+	return (0);
 }
+
 int	pip_check(char *str)
 {
 	int	i;

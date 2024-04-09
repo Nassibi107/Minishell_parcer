@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:14:55 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 16:36:28 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:43:42 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "libft/libft.h"
 #include "minishell.h"
 #include <stdlib.h>
-
-
-void lk()
-{
-	system("leaks minishell");
-}
 
 void	ft_puterror(int p)
 {
@@ -33,16 +27,19 @@ void	ft_puterror(int p)
 		ft_putendl_fd("bash: syntax error near unexpected token `newline'", 2);
 	if (p == 7)
 		ft_putendl_fd("bash: syntax error near unexpected token `? '", 2);
-
 }
+
 int	main(int ac, char **av, char **env)
 {
-	int	p;
-	char	*str;
-	t_minishell *head;
-	atexit(lk);
-	// while (1)
-	// {
+	t_minishell	*head;
+	int			p;
+	char		*str;
+
+	(void) ac;
+	(void) av;
+	(void) env;
+	while (1)
+	{
 		str = readline("minishell $> ");
 		p = ft_checker(str);
 		add_history(str);
@@ -55,7 +52,7 @@ int	main(int ac, char **av, char **env)
 		head = parcing(str);
 		free(str);
 		str = NULL;
-	// }
+	}
 	ft_cleanshell(&head);
 	return (0);
 }

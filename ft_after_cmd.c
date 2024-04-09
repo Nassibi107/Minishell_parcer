@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 13:25:02 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 17:11:17 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:57:40 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,11 @@ char	*ft_aftercmd(char *s)
 	int		i;
 	int		q;
 	char	**strs;
+	int		j;
 
 	i = 0;
 	q = 0;
-	int j;
+	j = 0;
 	while (s[i] == 9 || s[i] == 32)
 	{
 		s++;

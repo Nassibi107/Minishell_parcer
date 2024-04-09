@@ -6,13 +6,22 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:06:43 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/09 00:05:46 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:54:50 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parcer.h"
-#include <stdio.h>
 #include <stdlib.h>
+
+void	errq(int op)
+{
+	if (!op)
+	{
+		ft_putendl_fd("bash: syntax error near `'\"", 2);
+		exit(1);
+	}
+	return ;
+}
 
 void	hudler_o(char *s1, int i, int *op, size_t *len_word)
 {
@@ -27,11 +36,7 @@ void	hudler_o(char *s1, int i, int *op, size_t *len_word)
 				else if (s1[i] == '\'')
 					*op = ft_parq(s1, &i, 's');
 			}
-			if (!(*op))
-			{
-				printf("syntax error");
-				exit(0);
-			}
+			errq(*op);
 			*op = 0;
 			*len_word += i;
 		}

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 23:59:43 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:52:13 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,4 @@ void	ft_cleantach(char **s);
 void ft_cleanshell(t_minishell **node);
 int	ft_checker(char *str);
 int	pip_check(char *str);
+void show_me (t_minishell *cmp);

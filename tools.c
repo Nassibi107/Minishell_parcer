@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 19:17:36 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/03/30 16:17:36 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:53:34 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,17 @@ int	ft_set_tk(char *str)
 {
 	int	len;
 	int	i;
-	int	op;
 
 	len = 0;
 	i = 0;
-	op = 0;
 	while (str[i])
 	{
 		if (str[i] == '\'' || str[i] == '\"')
 		{
 			if (str[i] == '\'')
-				op = ft_parq(str, &i, 's');
+				ft_parq(str, &i, 's');
 			else if (str[i] == '\"')
-				op = ft_parq(str, &i, 'q');
-			op = 0;
+				ft_parq(str, &i, 'q');
 			if (!str[i])
 				break ;
 		}

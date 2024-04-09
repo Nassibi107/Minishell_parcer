@@ -6,15 +6,14 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 17:19:55 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 22:59:43 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:28:03 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "parcer.h"
 
-
-void ft_cleanshell(t_minishell **node)
+void	ft_cleanshell(t_minishell **node)
 {
 	t_minishell	*temp;
 	t_minishell	*current;

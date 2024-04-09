@@ -6,20 +6,17 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 23:59:22 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:07:29 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
 #include "parcer.h"
-#include <stdio.h>
 
 t_minishell	*lst_cmd(char *cmd, char *file, int *arr, int len)
 {
 	t_minishell	*lst;
-	char *s;
-	char **str;
-	char **st1;
+	char		*s;
+	char		**str;
 
 	lst = malloc(sizeof(t_minishell));
 	if (!lst)
@@ -30,8 +27,8 @@ t_minishell	*lst_cmd(char *cmd, char *file, int *arr, int len)
 	lst->files = ft_files(str);
 	lst->tab = arr;
 	lst->len_tab = len;
-	s = ft_join(ft_concat(lst->cmdt,++lst->afcmd_t ));
-	lst->cmd = ft_splits(s ,0);
+	s = ft_join(ft_concat(lst->cmdt, ++lst->afcmd_t));
+	lst->cmd = ft_splits(s, 0);
 	free(s);
 	ft_cleantach(str);
 	--lst->afcmd_t;
@@ -67,12 +64,12 @@ void	add_back_executor(t_minishell **head, t_minishell *node)
 	node->next = NULL;
 }
 
-t_minishell	*get_link_cmd(char **str, t_minishell *head , t_minishell *cmd)
+t_minishell	*get_link_cmd(char **str, t_minishell *head, t_minishell *cmd)
 {
 	int			lens;
 	int			i;
 	int			*arr;
-	char **pt;
+	char		**pt;
 
 	head = 0x0;
 	i = 0;
@@ -82,9 +79,9 @@ t_minishell	*get_link_cmd(char **str, t_minishell *head , t_minishell *cmd)
 		arr = ft_arr_tk(str[i], lens);
 		pt = ft_splits(str[i], 1);
 		if (i < lens)
-			cmd = lst_cmd(pt[0] , str[i], arr, lens);
+			cmd = lst_cmd(pt[0], str[i], arr, lens);
 		else
-			cmd = lst_cmd(pt[0] , str[i], arr, lens);
+			cmd = lst_cmd(pt[0], str[i], arr, lens);
 		add_back_executor(&head, cmd);
 		i++;
 		ft_cleantach(pt);
