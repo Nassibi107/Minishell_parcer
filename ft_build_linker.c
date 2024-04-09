@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:16:53 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 23:07:52 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:59:22 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ void	add_back_executor(t_minishell **head, t_minishell *node)
 	node->next = NULL;
 }
 
-t_minishell	*get_link_cmd(char **str)
+t_minishell	*get_link_cmd(char **str, t_minishell *head , t_minishell *cmd)
 {
-	t_minishell	*head;
-	t_minishell	*cmd;
 	int			lens;
 	int			i;
 	int			*arr;

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:32:52 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/08 16:13:49 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:59:43 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char  *hudler_t(char *s1,char *word, int *id);
 void	ft_skep (char *str, int *i);
 char	**handle_of_malloc(char **tab);
 int	get_des(char c,int fg);
-t_minishell	*get_link_cmd(char **str);
+t_minishell	*get_link_cmd(char **str, t_minishell *head , t_minishell *cmd);
 void	shell_at_back(t_minishell **head, t_minishell *node);
 void	shell_at_font(t_minishell **head, t_minishell *node);
 t_minishell	*last_shell(t_minishell *lst);
