@@ -6,13 +6,12 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:20:45 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/04/09 15:45:43 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:03:39 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "parcer.h"
-#include <cstddef>
 
 t_minishell	*parcing(char *str)
 {

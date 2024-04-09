@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:10:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/04/01 17:06:16 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:01:02 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 #include <readline/readline.h>
 
 
-
-
 typedef struct s_minishell
 {
 	char **cmd;
@@ -31,6 +29,9 @@ typedef struct s_minishell
 	char	**afcmd_t;
 	int	*tab;
 	int	len_tab;
+	int	fd_in;
+	int	fd_out;
+	int	exit_status;
 	struct s_minishell	*next;
 } t_minishell;
 
